@@ -2,9 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <bean id="helloWorld" class="it.lq.spring.beans.HelloWorld">
-        <property name="name" value="spring-ioc-test"/>
-    </bean>
-
+    <!--hello-world-->
+    <import resource="initialization/spring-hello-world.xml"/>
+    <import resource="initialization/spring-initialize-arguments.xml"/>
 </beans>

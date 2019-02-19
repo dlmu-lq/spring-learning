@@ -1,4 +1,4 @@
-package it.lq.spring.beans;
+package top.itlq.spring.exampleBeans.initialization;
 
 /**
  * spring 通过xml创建类测试
