@@ -9,6 +9,15 @@
     <!--或综合几个常用注解的写法-->
     <context:annotation-config/>
 
-    <bean class="top.itlq.spring.exampleBeans.annotation.Event"/>
+    <bean name="event3" class="top.itlq.spring.exampleBeans.annotation.Event"/>
+    <bean name="event2" class="top.itlq.spring.exampleBeans.annotation.Event"/>
+    <bean class="top.itlq.spring.exampleBeans.annotation.Person"/>
+    <!--<bean class="top.itlq.spring.exampleBeans.annotation.Music"/>-->
     <bean name="talk" class="top.itlq.spring.exampleBeans.annotation.Talk"/>
+    <bean class="top.itlq.spring.exampleBeans.annotation.Video"/>
+
+    <!--qualifier-->
+    <bean class="top.itlq.spring.exampleBeans.annotation.PopMusic"/>
+    <!--<bean class="top.itlq.spring.exampleBeans.annotation.RockMusic"/>-->
+    <bean name="concert" class="top.itlq.spring.exampleBeans.annotation.Concert"/>
 </beans>
