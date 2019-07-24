@@ -6,6 +6,7 @@
         <constructor-arg ref="userReferences"/>
     </bean>
     <bean name="userReferences" class="top.itlq.spring.exampleBeans.scope.UserReferences" scope="prototype">
-        <aop:scoped-proxy/>
+        <aop:scoped-proxy proxy-target-class="false"/>
+<!--        <aop:scoped-proxy/>-->
     </bean>
 </beans>
