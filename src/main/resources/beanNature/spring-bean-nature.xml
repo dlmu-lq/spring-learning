@@ -7,4 +7,8 @@
     <bean class="top.itlq.spring.exampleBeans.beanNature.TestCallBack"
           init-method="init3"
           destroy-method="destroy3"/>
+    <bean class="top.itlq.spring.exampleBeans.beanNature.LifecycleTest"/>
+    <bean class="top.itlq.spring.exampleBeans.beanNature.LifecycleProcessorTest"/>
+    <bean class="top.itlq.spring.exampleBeans.beanNature.SmartLifecycleTest"/>
+    <bean class="top.itlq.spring.exampleBeans.beanNature.BeanNameAwareTest"/>
 </beans>

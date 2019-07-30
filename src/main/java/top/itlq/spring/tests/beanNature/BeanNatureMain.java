@@ -1,9 +1,10 @@
 package top.itlq.spring.tests.beanNature;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import top.itlq.spring.exampleBeans.beanNature.TestCallBack;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * beand的nature测试 生命周期等回调；
@@ -15,5 +16,25 @@ public class BeanNatureMain {
                 "beanNature/spring-bean-nature.xml");
         TestCallBack testCallBack = context.getBean(TestCallBack.class);
         context.close();
+    }
+
+    @Test
+    void testLifecycle() throws Exception{
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+                "beanNature/spring-bean-nature.xml");
+        context.registerShutdownHook();
+        System.out.println("context starting");
+        context.start();
+        TimeUnit.MILLISECONDS.sleep(1500);
+        System.out.println("context refreshing");
+        context.refresh();
+        TimeUnit.MILLISECONDS.sleep(1500);
+        System.out.println("context closing");
+    }
+
+    @Test
+    void testAware() throws Exception{
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+                "beanNature/spring-bean-nature.xml");
     }
 }
