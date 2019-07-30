@@ -30,6 +30,7 @@ public class ClasspathComponentsMain {
     }
 
     /**
+     * 自动扫描 class形式
      * @Configuration @ComponentScan
      */
     @Test
@@ -42,6 +43,7 @@ public class ClasspathComponentsMain {
     }
 
     /**
+     * 自动扫描 xml形式
      * xml component scan
      */
     @Test
@@ -51,5 +53,15 @@ public class ClasspathComponentsMain {
         // 非限定类名首字母变小写作为默认bean name
         System.out.println(context.getBean("barService"));
         System.out.println(context.getBean("drinkMapper"));
+    }
+
+    /**
+     * 自动扫描过滤器
+     * xml形式
+     */
+    @Test
+    void e(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpathComponents/test-filters.xml");
+        System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
     }
 }

@@ -8,6 +8,7 @@
     <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
     <!--或综合几个常用注解的写法-->
     <context:annotation-config/>
+iu也去；]
 
     <bean name="event3" class="top.itlq.spring.exampleBeans.annotation.Event"/>
     <bean name="event2" class="top.itlq.spring.exampleBeans.annotation.Event"/>

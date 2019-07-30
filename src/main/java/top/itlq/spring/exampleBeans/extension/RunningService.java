@@ -1,10 +1,10 @@
 package top.itlq.spring.exampleBeans.extension;
 
 public class RunningService {
-    public String server;
-    public String state;
-    public Integer minutes;
-    public Integer type;
+    private String server;
+    private String state;
+    private Integer minutes;
+    private Integer type;
 
     public String getState() {
         return state;
@@ -44,7 +44,13 @@ public class RunningService {
     }
 
     @Override
-    public String toString(){
-        return "server:" + server + ";minutes:" + minutes + ";type:" + type + ";state:" + state;
+    public String toString() {
+        return "RunningService{" +
+                "server='" + server + '\'' +
+                ", state='" + state + '\'' +
+                ", minutes=" + minutes +
+                ", type=" + type +
+                '}';
     }
+
 }
