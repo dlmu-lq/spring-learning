@@ -5,6 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Concert {
     @Autowired
-    @Qualifier("a")
+    @Qualifier("pop")
     public Music music1;
 }

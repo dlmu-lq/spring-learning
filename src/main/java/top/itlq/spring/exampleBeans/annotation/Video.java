@@ -8,7 +8,7 @@ public class Video {
 
 //    @Resource(name = "person") // 一旦指定name，只匹配name
     @Resource //不指定name，匹配签名
-    // 如果使用已存在的bean name，但类型不匹配即抛错
+    // 如果使用已存在的bean name，但类型不匹配即抛错(即使没有指定name，先匹配签名name)
 //    public Person event2;
     public Person aaa;
 
