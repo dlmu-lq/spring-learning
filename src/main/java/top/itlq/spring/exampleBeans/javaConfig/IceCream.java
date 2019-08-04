@@ -19,4 +19,12 @@ public class IceCream {
     public void init(){
         System.out.println("iceCream method init");
     }
+
+    public void close(){
+        System.out.println("iceCream method close");
+    }
+
+    public void shutdown(){
+        System.out.println("iceCream method shutdown");
+    }
 }
