@@ -2,35 +2,41 @@ package top.itlq.spring.tests.enviroment;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
-import top.itlq.spring.exampleBeans.enviroment.DevTest;
-import top.itlq.spring.exampleBeans.enviroment.EnvConfig;
-import top.itlq.spring.exampleBeans.enviroment.ProTest;
+import org.springframework.core.convert.Property;
+import top.itlq.spring.exampleBeans.enviroment.PropertySourceMain;
+import top.itlq.spring.exampleBeans.enviroment.TestBean;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = EnvConfig.class)
-@ActiveProfiles("dev")
+import java.util.Map;
+import java.util.Properties;
+
 public class Main {
 
-    @Autowired(required = false)
-    private ProTest proTest;
-
-    @Autowired(required = false)
-    private DevTest devTest;
-
+    /**
+     * 包含系统属性（包括命令行参数），和操作系统环境变量
+     */
+    @Test
+    void test(){
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext();
+        Properties properties = System.getProperties();
+        System.out.println(properties);
+        for(Map.Entry<Object,Object> entry:properties.entrySet()){
+            Assertions.assertEquals(context.getEnvironment().getProperty(entry.getKey().toString()), entry.getValue());
+        }
+        Map<String,String> map = System.getenv();
+        System.out.println(map);
+        for(Map.Entry<String,String> entry:map.entrySet()){
+            Assertions.assertEquals(context.getEnvironment().getProperty(entry.getKey()), entry.getValue());
+        }
+    }
 
     @Test
-    void testSystemVariableProfile(){
-        Assertions.assertNotNull(devTest);
-        Assertions.assertNull(proTest);
+    void testPropertySource(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(
+                PropertySourceMain.class
+        );
+        System.out.println(context.getBean(TestBean.class));
     }
 }
