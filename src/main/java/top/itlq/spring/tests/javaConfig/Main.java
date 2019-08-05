@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import top.itlq.spring.exampleBeans.javaConfig.*;
+import top.itlq.spring.exampleBeans.javaConfig.profile.ProfileConfig;
+import top.itlq.spring.exampleBeans.javaConfig.profile.ProfileDevTest;
+import top.itlq.spring.exampleBeans.javaConfig.profile.ProfileProTest;
+import top.itlq.spring.exampleBeans.javaConfig.profile.ProfileTest;
 import top.itlq.spring.exampleBeans.javaConfig.resturant.ResturantConfig;
 import top.itlq.spring.exampleBeans.javaConfig.resturant.ResturantConfig2;
 
@@ -57,5 +61,23 @@ class Main {
         System.out.println(context.getBean("f1"));
         System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
         context.close();
+    }
+
+    /**
+     * profile
+     */
+    @Test
+    void testProfile(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.getEnvironment().setActiveProfiles("dev");
+        context.register(ProfileConfig.class);
+        context.refresh();
+        Assertions.assertTrue(context.getBean(ProfileTest.class) instanceof ProfileDevTest);
+
+        context = new AnnotationConfigApplicationContext();
+        context.getEnvironment().setActiveProfiles("pro");
+        context.register(ProfileConfig.class);
+        context.refresh();
+        Assertions.assertTrue(context.getBean(ProfileTest.class) instanceof ProfileProTest);
     }
 }
