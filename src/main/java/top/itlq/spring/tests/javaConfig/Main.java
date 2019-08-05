@@ -24,7 +24,7 @@ class Main {
         );
         context.registerShutdownHook();
         Assertions.assertEquals(
-                context.getBean(IceCream.class).getChocolate(),
+                context.getBean("iceCream", IceCream.class).getChocolate(),
                 context.getBean(Chocolate.class)
         );
         // 默认 @Bean 方法会将 bean的close方法自动做为销毁回调，可用 destroyMethod=""关闭

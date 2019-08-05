@@ -18,4 +18,10 @@ public class Config {
         // 直接使用chocolate bean注入依赖；lite模式@Bean不可以；
         return new IceCream(chocolate());
     }
+
+    @Bean
+    public IceCream iceCream2(Chocolate chocolate2){
+        // 直接使用chocolate bean注入依赖；lite模式@Bean不可以；
+        return new IceCream(chocolate2);
+    }
 }
