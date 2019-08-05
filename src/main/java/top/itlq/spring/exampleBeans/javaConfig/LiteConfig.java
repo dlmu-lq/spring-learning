@@ -30,7 +30,7 @@ public class LiteConfig {
         return new Chocolate();
     }
 
-    @Bean(initMethod = "init")
+    @Bean(initMethod = "init",destroyMethod = "")
     public IceCream iceCream(){
         // 普通方法语义调用，不能直接使用bean依赖；
         return new IceCream(chocolate());
