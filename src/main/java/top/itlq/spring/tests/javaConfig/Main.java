@@ -16,7 +16,7 @@ class Main {
                 Config.class
         );
         Assertions.assertEquals(
-                context.getBean(IceCream.class).getChocolate(),
+                context.getBean("iceCream", IceCream.class).getChocolate(),
                 context.getBean(Chocolate.class)
         );
     }
