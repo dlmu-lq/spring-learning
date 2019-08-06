@@ -6,7 +6,16 @@
         <property name="basenames">
             <list>
                 <value>windows</value>
+                <value>format</value>
+                <value>exceptions</value>
             </list>
         </property>
     </bean>
+<!--    放在非根目录不好用-->
+<!--    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
+<!--        <property name="basenames">-->
+<!--            <list>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
 </beans>
