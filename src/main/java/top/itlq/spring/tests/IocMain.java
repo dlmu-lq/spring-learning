@@ -36,7 +36,7 @@ class IocMain {
      */
     @Test
     void all(){
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-main.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContextAdditional/spring-main.xml");
     }
 
 }

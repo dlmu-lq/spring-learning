@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Component;
 
 @Component
-@ImportResource("/message-source-test.xml") // 导入messageSource
+@ImportResource("/applicationContextAdditional/message-source-test.xml") // 导入messageSource
 public class MessageSourceTest implements MessageSourceAware {
     @Override
     public void setMessageSource(MessageSource messageSource) {

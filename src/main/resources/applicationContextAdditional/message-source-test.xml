@@ -3,19 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="defaultEncoding" value="utf-8"/>
         <property name="basenames">
             <list>
-                <value>windows</value>
-                <value>format</value>
-                <value>exceptions</value>
+                <value>applicationContextAdditional.windows</value>
+                <value>applicationContextAdditional.format</value>
+                <value>applicationContextAdditional.exceptions</value>
             </list>
         </property>
     </bean>
-<!--    放在非根目录不好用-->
-<!--    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
-<!--        <property name="basenames">-->
-<!--            <list>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--    </bean>-->
 </beans>
