@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import top.itlq.spring.exampleBeans.applicationContextAdditional.*;
 
+import java.io.IOException;
 import java.util.Locale;
 
 public class Main {
@@ -57,5 +58,11 @@ public class Main {
     void testGenericEvents(){
         ApplicationContext context = new AnnotationConfigApplicationContext(EventConfig.class);
         context.getBean(PersonService.class).createPerson();
+    }
+
+    @Test
+    void testResourceLoader() throws IOException {
+        ApplicationContext context = new AnnotationConfigApplicationContext(ResourceLoaderTest.class);
+        context.getBean(ResourceLoaderTest.class).loadResource("/applicationContextAdditional/exceptions.properties");
     }
 }
