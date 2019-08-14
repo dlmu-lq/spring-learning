@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--通过xml配置构造器/工厂方法实例化bean-->
+    <!--构造器，注入依赖-->
+    <bean name="factoryMethodTest" class="top.itlq.spring.ioc.beans.initialization.FactoryMethodTest">
+        <constructor-arg ref="factoryDependency"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="2"/>
+    </bean>
+    <bean name="factoryDependency" class="top.itlq.spring.ioc.beans.initialization.FactoryDependency"/>
+    <!--静态工厂方法-->
+    <bean name="factoryMethodTest2" class="top.itlq.spring.ioc.beans.initialization.FactoryMethodTest" factory-method="createInstance">
+        <constructor-arg value="1"/>
+    </bean>
+    <!--非静态工厂方法-->
+    <bean factory-bean="factoryMethodTest" factory-method="createOtherInstance"/>
+</beans>
