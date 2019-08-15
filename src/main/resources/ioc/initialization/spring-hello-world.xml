@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--基本的定义bean-->
+    <bean id="helloWorld" class="top.itlq.spring.ioc.beans.initialization.HelloWorld">
+        <property name="name" value="spring-ioc-test"/>
+    </bean>
+
+    <!--通过name、alias-->
+    <bean name="nameHelloWorld,helloWorld2" class="top.itlq.spring.ioc.beans.initialization.HelloWorld"
+        p:name="name-alias-test"> <!--xml快捷方式需要schema - p-->
+    </bean>
+    <alias name="helloWorld2" alias="helloWorld3"/>
+</beans>
