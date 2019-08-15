@@ -1,4 +1,4 @@
-package top.itlq.spring.tests.resources;
+package top.itlq.spring.resources;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,8 +12,11 @@ import top.itlq.spring.resources.MessengerService;
 import top.itlq.spring.resources.TestBean1;
 import top.itlq.spring.resources.TestBean2;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Arrays;
+import java.util.Enumeration;
 
 /**
  * 测试Resources
@@ -45,11 +48,17 @@ class ResourcesTest {
         Assertions.assertTrue(context.getResource("http:///resources/a.txt") instanceof UrlResource);
     }
 
+    /**
+     * 没必要
+     */
     @Test
     void testResourceLoaderAware(){
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
     }
 
+    /**
+     * 测试ClassPathXmlApplicationContext的一个构造器，根据类路径找资源路径
+     */
     @Test
     void testClassPathXmlApplicationShortcuts(){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
@@ -58,6 +67,20 @@ class ResourcesTest {
         Assertions.assertNotNull(context.getBean(TestBean2.class));
     }
 
+    @Test
+    void testGetResources() throws IOException {
+        Enumeration<URL> urls = getClass().getClassLoader().getResources("resources/a.txt");
+        while (urls.hasMoreElements()){
+            System.out.println(urls.nextElement().getPath());
+        }
+    }
+
+
+    /**
+     * 返回resource，字符串形式，简单读取
+     * @param resource
+     * @return
+     */
     private static String readResource(Resource resource){
         try(InputStream inputStream = resource.getInputStream()) {
             return new String(inputStream.readAllBytes());
