@@ -19,25 +19,39 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <!--数据源连接池形式的事务管理器-->
-    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <!--数据源连接池形式的事务管理器,如果id为transactionManager则后面不用指明-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="basicDataSource"/>
     </bean>
 
     <!--hibernate可以通过SessionFactory配置对应的TransactionManager-->
 
+    <bean class="top.itlq.spring.data.access.service.DefaultFooService"/>
+
     <!--配置transaction测试-->
-    <tx:advice id="txAdvice" transaction-manager="dataSourceTransactionManager">
+    <!--使用aop及tx:advice配置 start-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
+            <tx:method name="test*"
+                       read-only="true"
+                       propagation="REQUIRED"
+                       rollback-for="RunTimeException,Error"
+                       no-rollback-for="Throwable"
+                       timeout="-1"
+                       isolation="DEFAULT"/>
             <tx:method name="get*" read-only="true"/>
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
-
     <!--配置aop使以上txAdvice在对应Service执行时使用-->
     <aop:config>
-        <aop:pointcut id="serviceOperation" expression="execution(* top.itlq.spring.data.access.service.*.*(..))"/>
+        <!--<aop:pointcut id="serviceOperation" expression="execution(* top.itlq.spring.data.access.service.*.*(..))"/>-->
+        <aop:pointcut id="serviceOperation" expression="execution(* top.itlq.spring.data.access.service.FooService.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
     </aop:config>
+    <!--使用aop及tx:advice配置 end-->
 
+    <!--开启使用@Transactional注解方式配置 start-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--开启使用@Transactional注解方式配置 end-->
 </beans>
