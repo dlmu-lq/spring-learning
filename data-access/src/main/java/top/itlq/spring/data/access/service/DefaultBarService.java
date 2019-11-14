@@ -3,7 +3,6 @@ package top.itlq.spring.data.access.service;
 import org.springframework.transaction.annotation.Transactional;
 import top.itlq.spring.data.access.dao.Foo;
 
-@Transactional
 public class DefaultBarService implements BarService{
 
     @Override
