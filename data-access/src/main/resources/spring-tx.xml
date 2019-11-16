@@ -55,11 +55,13 @@
 
     <!--使用aop及tx:advice配置 end-->
 
+
     <!--开启使用@Transactional注解方式配置 start-->
 
     <!--测试bean-->
     <bean class="top.itlq.spring.data.access.service.DefaultBarService"/>
     <!--开启注解事务驱动-->
     <tx:annotation-driven transaction-manager="transactionManager" mode="proxy" proxy-target-class="true"/>
+
     <!--开启使用@Transactional注解方式配置 end-->
 </beans>

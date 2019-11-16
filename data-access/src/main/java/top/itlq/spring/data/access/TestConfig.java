@@ -2,11 +2,11 @@ package top.itlq.spring.data.access;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.aspectj.AnnotationTransactionAspect;
 import top.itlq.spring.data.access.service.BarService;
 import top.itlq.spring.data.access.service.DefaultBarService;
 
@@ -39,10 +39,12 @@ public class TestConfig {
      */
     @Bean
     public PlatformTransactionManager transactionManager() throws Exception {
-        return new DataSourceTransactionManager(basicDataSource());
+        PlatformTransactionManager txManager = new DataSourceTransactionManager(basicDataSource());
+        AnnotationTransactionAspect.aspectOf().setTransactionManager(txManager);
+        return txManager;
     }
     @Bean
-    public BarService barService(){
+    public DefaultBarService barService(){
         return new DefaultBarService();
     }
 }

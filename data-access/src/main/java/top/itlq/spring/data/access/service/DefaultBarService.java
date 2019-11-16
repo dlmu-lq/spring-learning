@@ -6,7 +6,7 @@ import top.itlq.spring.data.access.dao.Foo;
 public class DefaultBarService implements BarService{
 
     @Override
-    public void get(String fooName) {
+    public Foo get(String fooName) {
         throw new UnsupportedOperationException();
     }
 
@@ -16,6 +16,7 @@ public class DefaultBarService implements BarService{
     }
 
     @Override
+    @Transactional
     public void insert(Foo foo) {
         throw new UnsupportedOperationException();
     }
