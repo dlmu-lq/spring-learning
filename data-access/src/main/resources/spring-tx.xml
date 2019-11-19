@@ -64,4 +64,9 @@
     <tx:annotation-driven transaction-manager="transactionManager" mode="proxy" proxy-target-class="true"/>
 
     <!--开启使用@Transactional注解方式配置 end-->
+
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <bean class="top.itlq.spring.data.access.service.TestDaoExceptionService">
+        <constructor-arg ref="basicDataSource"/>
+    </bean>
 </beans>

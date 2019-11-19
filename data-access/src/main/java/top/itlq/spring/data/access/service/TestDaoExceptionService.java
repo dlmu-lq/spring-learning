@@ -29,4 +29,9 @@ public class TestDaoExceptionService {
         // 测试spring封装异常用
         return jdbcTemplate.query("select * from user1", new BeanPropertyRowMapper(UserEntity.class));
     }
+
+    public void testException() {
+        // 测试spring封装异常用
+        throw new IllegalArgumentException();
+    }
 }

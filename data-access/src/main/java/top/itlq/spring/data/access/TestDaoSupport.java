@@ -7,6 +7,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import top.itlq.spring.data.access.service.TestDaoExceptionService;
 
 import java.util.Properties;
@@ -44,5 +46,11 @@ public class TestDaoSupport {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         System.out.println(context.getBean(TestDaoExceptionService.class).getUsers());
         System.out.println(context.getBean(TestDaoExceptionService.class).getUsersWithExceptions());
+    }
+
+    @Test
+    public void test12() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-tx.xml");
+        context.getBean(TestDaoExceptionService.class).testException();
     }
 }
