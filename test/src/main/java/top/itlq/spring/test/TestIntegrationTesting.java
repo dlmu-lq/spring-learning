@@ -11,8 +11,14 @@ package top.itlq.spring.test;
  *          JdbcTestUtils 的工具方法 （AbstractTransactionalJUnit4SpringContextTests） (可结合embedded database)
  *      注解
  *          spring测试注解
+ *              @BootstrapWith @ContextConfiguration @WebAppConfiguration @ContextHierarchy
+ *              @ActiveProfiles @TestPropertySource @DirtiesContext @TestExecutionListeners
+ *              @Commit @Rollback @BeforeTransaction @AfterTransaction
+ *              @Sql @SqlConfig @SqlMergeMode @SqlGroup
  *          标准注解支持
+ *
  *          spring junit4 测试注解
+ *              @
  *          spring junit jupiter 测试注解
  *          测试用配置注解；
  */
