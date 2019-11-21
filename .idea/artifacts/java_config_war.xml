@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="java-config:war">
-    <output-path>$PROJECT_DIR$/mvc/mvc-java/target</output-path>
-    <root id="archive" name="java-config.war">
-      <element id="artifact" artifact-name="java-config:war exploded" />
-    </root>
-  </artifact>
-</component>

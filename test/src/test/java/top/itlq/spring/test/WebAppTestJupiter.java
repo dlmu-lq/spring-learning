@@ -1,18 +1,17 @@
-package top.itlq.spring.test.dao;
+package top.itlq.spring.test;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import top.itlq.spring.test.TestConfig;
+import top.itlq.spring.test.dao.UserDao;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = TestConfig.class)
-class UserDaoTest {
+@SpringJUnitWebConfig(TestConfig.class)
+class WebAppTestJupiter {
 
     @Autowired
     private UserDao userDao;
@@ -23,5 +22,6 @@ class UserDaoTest {
     void test1(){
         System.out.println(userDao);
         System.out.println(applicationContext);
+        System.out.println(Arrays.toString(applicationContext.getEnvironment().getActiveProfiles()));
     }
 }

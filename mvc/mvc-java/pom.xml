@@ -9,31 +9,55 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>top.itlq.spring</groupId>
   <artifactId>mvc-java</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>java-config Maven Webapp</name>
+  <name>mvc-java</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>top.itlq.springmvc</groupId>
-      <artifactId>core</artifactId>
+      <groupId>top.itlq.spring</groupId>
+      <artifactId>mvc-core</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+    </dependency>
+
   </dependencies>
 
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <profile.env>dev</profile.env>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+    <profile>
+      <id>pro</id>
+      <properties>
+        <profile.env>pro</profile.env>
+      </properties>
+    </profile>
+  </profiles>
+
   <build>
-    <finalName>java-config</finalName>
+    <finalName>mvc-java</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
@@ -67,5 +91,14 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>*</include>
+        </includes>
+      </resource>
+    </resources>
   </build>
 </project>
