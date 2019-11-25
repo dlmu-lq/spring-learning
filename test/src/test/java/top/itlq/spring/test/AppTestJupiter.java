@@ -11,15 +11,17 @@ import top.itlq.spring.test.dao.UserDao;
 import java.util.Arrays;
 
 @SpringJUnitWebConfig(TestConfig.class)
-class WebAppTestJupiter {
+class AppTestJupiter {
 
-    @Autowired
-    private UserDao userDao;
     @Autowired
     private ApplicationContext applicationContext;
 
+    /**
+     * 此处使用了方法注入
+     * @param userDao
+     */
     @Test
-    void test1(){
+    void test1(@Autowired UserDao userDao){
         System.out.println(userDao);
         System.out.println(applicationContext);
         System.out.println(Arrays.toString(applicationContext.getEnvironment().getActiveProfiles()));

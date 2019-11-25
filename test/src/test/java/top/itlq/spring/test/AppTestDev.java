@@ -9,7 +9,7 @@ import top.itlq.spring.test.dao.UserDao;
 import java.util.Arrays;
 
 @DevTestConfig
-public class WebAppTestDev {
+public class AppTestDev {
 
     @Autowired
     private UserDao userDao;
