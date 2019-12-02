@@ -1,23 +1,33 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="mvc-java:war exploded">
-    <output-path>$PROJECT_DIR$/mvc/mvc-java/target/mvc-java</output-path>
+  <artifact type="exploded-war" name="test:war exploded">
+    <output-path>$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="mvc-java" />
+          <element id="module-output" name="test" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="mvc-core-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="mvc-core" />
-          </element>
-          <element id="archive" name="base-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="base" />
-          </element>
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.1.4.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: com.jayway.jsonpath:json-path:2.4.0" />
+          <element id="library" level="project" name="Maven: net.minidev:json-smart:2.3" />
+          <element id="library" level="project" name="Maven: net.minidev:accessors-smart:1.2" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.0.4" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9" />
+          <element id="archive" name="base-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="base" />
+          </element>
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.12.1" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.12.1" />
@@ -31,24 +41,17 @@
           <element id="library" level="project" name="Maven: org.junit.vintage:junit-vintage-engine:5.3.0" />
           <element id="library" level="project" name="Maven: junit:junit:4.12" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
-          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.1.8.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.1.8.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.8.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.17.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.4" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.10.1" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.10" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.10" />
-          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.1.4.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/mvc/mvc-java/target/mvc-java/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/test/target/test-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="mvc-java/web/Web" />
+      <element id="javaee-facet-resources" facet="test/web/Web" />
     </root>
   </artifact>
 </component>
