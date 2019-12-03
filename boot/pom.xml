@@ -23,11 +23,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-<!--            FIXME 打包插件，打包classpath上的所有jars； 找到public static void main 标记为可执行类；提供依赖解析器设置spring boot依赖的版本-->
+        <!--FIXME 打包插件，打包classpath上的所有jars；
+            FIXME 找到public static void main 标记为可执行类；
+            FIXME 提供依赖解析器设置spring boot依赖的版本-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
