@@ -1,4 +1,4 @@
-package top.itlq.spring.boot.hello;
+package top.itlq.spring.boot.schedule;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ public class ScheduledTasks {
      * FIXME fixRate 每5s运行一次，可结合fixDelay;
      *  也可使用 cron
      */
-    @Scheduled(fixedRate = 5000)
+//    @Scheduled(fixedRate = 5000)
     public void reportCurrentTime(){
         logger.info("当前时间：{}", LocalDateTime.now().format(dateTimeFormatter));
     }
