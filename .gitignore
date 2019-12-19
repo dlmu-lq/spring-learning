@@ -58,3 +58,4 @@ fabric.properties
 .idea/httpRequests
 
 **/jdbc.properties
+**/application.yml
