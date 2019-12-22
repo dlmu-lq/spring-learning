@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间和映射sql语句，session执行时需要命名空间 + id的完全限定名进行匹配-->
+<mapper namespace="top.itlq.spring.configure.orm.UserMapper">
+
+    <resultMap id="resultMap" type="top.itlq.spring.configure.orm.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="birth" property="birth"/>
+    </resultMap>
+
+    <sql id="tableName">user</sql>
+    <sql id="columns">id,name,age,birth</sql>
+    <sql id="where">
+        <where>
+            <if test="id != null">
+                and self.id = #{id}
+            </if>
+            <if test="name != null">
+                and self.name = #{name}
+            </if>
+        </where>
+    </sql>
+
+    <!--使用Mapper映射查询，查询参数-->
+    <select id="selectUser" parameterType="Map" resultMap="resultMap">
+        select
+        <include refid="columns"/>
+        from
+        <include refid="tableName"/>
+        <include refid="where"/>
+    </select>
+
+    <insert id="insert" parameterType="top.itlq.spring.configure.orm.User" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        <include refid="tableName"/>
+        (name,age,birth)
+        values
+        (#{name},#{age},#{birth})
+    </insert>
+</mapper>

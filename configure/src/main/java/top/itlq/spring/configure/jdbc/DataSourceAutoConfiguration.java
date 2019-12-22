@@ -9,8 +9,9 @@ import javax.sql.DataSource;
 
 /**
  * 使用spring-boot-autoconfigure
- * {@link org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration}
  * {@link org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration}
+ * {@link org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration}
+ * {@link org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.Hikari}
  */
 @Configuration
 @ConditionalOnClass(DataSource.class)
