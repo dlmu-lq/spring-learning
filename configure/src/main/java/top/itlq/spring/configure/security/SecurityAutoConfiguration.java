@@ -1,6 +1,15 @@
 package top.itlq.spring.configure.security;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import static top.itlq.spring.configure.security.Authority.*;
 
 /**
  * 安全自动配置 autoconfigure模块
@@ -31,4 +40,56 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SecurityAutoConfiguration {
 
+    @Bean
+    public WebSecurityConfigurerAdapter webSecurityConfigurerAdapter(){
+        return new MyWebSecurityConfigurerAdapter();
+    }
+
+    public static class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter{
+        /**
+         * 认证信息中的GrantedAuthority从配置的userDetailsService的loadUserByName方法返回的UserDetails中取；
+          * @param auth
+         * @throws Exception
+         * @see GrantedAuthority
+         */
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth
+                    .userDetailsService(new MyUserDetailsService()).passwordEncoder(new BCryptPasswordEncoder())
+                    .and()
+                    .inMemoryAuthentication()
+                    .withUser("lee").password("{noop}03").roles(ADMIN)
+                        .and()
+                    .withUser("liang").password("{noop}03").roles(USER);
+        }
+
+        /**
+         * 忽略的请求
+         * @param web
+         * @throws Exception
+         */
+        @Override
+        public void configure(WebSecurity web) throws Exception {
+            web.ignoring().antMatchers("/open/**/*");
+        }
+
+        /**
+         * 不同url对应不同认证信息角色
+         * @param http
+         * @throws Exception
+         */
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+                    .csrf().disable()
+                    .authorizeRequests()
+                    .antMatchers("/admin/**").hasRole(ADMIN)
+                    .antMatchers("/user/**").hasRole(USER)
+                    .anyRequest().authenticated()
+                    .and()
+                    .logout().permitAll().and()
+                    .formLogin().permitAll().and()
+                    .httpBasic();
+        }
+    }
 }
