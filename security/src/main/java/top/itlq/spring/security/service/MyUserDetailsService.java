@@ -1,15 +1,16 @@
-package top.itlq.spring.configure.security;
+package top.itlq.spring.security.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import top.itlq.spring.security.entity.Authority;
+import top.itlq.spring.security.entity.User;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static top.itlq.spring.configure.security.Authority.*;
+import static top.itlq.spring.security.entity.Authority.*;
 
 public class MyUserDetailsService implements UserDetailsService {
     @Override

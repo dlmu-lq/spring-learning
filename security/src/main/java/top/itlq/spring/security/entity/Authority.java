@@ -1,4 +1,4 @@
-package top.itlq.spring.configure.security;
+package top.itlq.spring.security.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 

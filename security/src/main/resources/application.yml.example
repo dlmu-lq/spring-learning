@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: username
+    password: password
+    url: jdbc:mysql://***
+itlq:
+  weixin:
+    subscription:
+      appid: ***
+      secret: ***

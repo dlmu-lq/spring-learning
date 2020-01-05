@@ -1,4 +1,4 @@
-package top.itlq.spring.configure.controller;
+package top.itlq.spring.security.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
