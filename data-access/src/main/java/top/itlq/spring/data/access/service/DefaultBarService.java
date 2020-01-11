@@ -1,8 +1,11 @@
 package top.itlq.spring.data.access.service;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.itlq.spring.data.access.dao.Foo;
 
+@Service
 public class DefaultBarService implements BarService{
 
     @Override

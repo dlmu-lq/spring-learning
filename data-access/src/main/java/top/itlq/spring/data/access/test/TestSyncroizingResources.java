@@ -1,4 +1,4 @@
-package top.itlq.spring.data.access;
+package top.itlq.spring.data.access.test;
 
 /**
  * 多个 transaction managers，两者关联，事务中用到的需要同步的资源

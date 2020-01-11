@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.itlq.spring.data.access.orm.PosMapper">
+    <select id="testInterval" resultType="top.itlq.spring.data.access.orm.PosEntity">
+        SET @preTime := DATE_ADD("2020-01-05",INTERVAL -1 DAY);
+        select * from a_pos self
+        <where>
+            self.time &gt; DATE_ADD("2020-01-05",INTERVAL -1 DAY)
+            AND self.time &lt; "2020-01-05"
+            AND IF(TIMESTAMPDIFF(MINUTE,@preTime,self.time) > 10, @preTime := self.time, 0);
+        </where>
+    </select>
+    <insert id="insert" parameterType="top.itlq.spring.data.access.orm.PosEntity">
+        INSERT INTO a_pos(time, lng, lat) values(#{time}, #{lng}, #{lat})
+    </insert>
+</mapper>
