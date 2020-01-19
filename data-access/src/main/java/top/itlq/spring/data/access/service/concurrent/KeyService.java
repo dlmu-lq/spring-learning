@@ -17,6 +17,15 @@ public class KeyService {
     }
 
     @Transactional
+    public void getAndUpdateNumber(String id, int size){
+        // 循环放在事务里面，这么多次更新将只使用一个事务；
+        for(int j=0;j<size;j++){
+            Long currentNumber = getAndUpdateNumber(id);
+            System.out.println(id + ":" + currentNumber);
+        }
+    }
+
+    @Transactional
     public Long getAndUpdateNumber(String id){
         // 此处使用了数据库的行级锁，一个事务正在操作该行时，其他事务只能等待（直接获得排他锁）；
         Long re = keyMapper.loadForUpdate(id).getNumber();

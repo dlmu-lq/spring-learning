@@ -30,7 +30,7 @@ public class TestConcurrent {
         KeyService keyService = context.getBean(KeyService.class);
         Long id0InitNum = keyService.getAndUpdateNumber("id0"),
                 id1InitNum = keyService.getAndUpdateNumber("id1");
-        int threadSize = 50;
+        int threadSize = 50, updateSize = 50; // 线程数，每个线程循环更新次数；
         CountDownLatch countDownLatch = new CountDownLatch(1),
                 countDownLatch1 = new CountDownLatch(threadSize * 2);
         for(int i=0;i<threadSize*2;i++){
@@ -40,8 +40,8 @@ public class TestConcurrent {
                 try {
                     countDownLatch.await();
                     String id = "id" + (idNum % 2);
-                    Long currentNumber = keyService.getAndUpdateNumber(id);
-                    System.out.println(id + ":" + currentNumber);
+                    // 每个线程循环更新多次
+                    keyService.getAndUpdateNumber(id, updateSize);
                     countDownLatch1.countDown();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -56,7 +56,7 @@ public class TestConcurrent {
         }
         Long id0EndNum = keyService.getAndUpdateNumber("id0"),
                 id1EndNum = keyService.getAndUpdateNumber("id1");
-        assertEquals(id0EndNum.longValue(), id0InitNum + threadSize + 1);
-        assertEquals(id1EndNum.longValue(), id1InitNum + threadSize + 1);
+        assertEquals(id0EndNum.longValue(), id0InitNum + threadSize * updateSize + 1);
+        assertEquals(id1EndNum.longValue(), id1InitNum + threadSize * updateSize + 1);
     }
 }
