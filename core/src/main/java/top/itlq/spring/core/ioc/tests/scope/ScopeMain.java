@@ -2,9 +2,11 @@ package top.itlq.spring.core.ioc.tests.scope;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import top.itlq.spring.core.ioc.beans.scope.UserManager;
 
+@Scope
 public class ScopeMain {
     /**
      * 在xml中是否配置 aop scoped-proxy效果不同；

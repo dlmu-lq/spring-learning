@@ -8,9 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -21,6 +24,7 @@ import top.itlq.spring.mvc.config.jackson.InstantDeserializer;
 import top.itlq.spring.mvc.config.jackson.InstantSerializer;
 import top.itlq.spring.mvc.converters.MyConverter;
 
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.List;
 
@@ -58,6 +62,10 @@ public class RootConfig implements WebMvcConfigurer {
      */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters){
+        // 按照顺序执行，@RequestBody 和 @ResponseBody 用来读取请求体或写入响应体的转换器
+        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
+        stringHttpMessageConverter.setWriteAcceptCharset(false);  // see SPR-7316
+        converters.add(stringHttpMessageConverter);
         converters.add(new MappingJackson2HttpMessageConverter(objectMapper()));
     }
 
@@ -88,7 +96,7 @@ public class RootConfig implements WebMvcConfigurer {
     @Bean
     public ObjectMapper objectMapper(){
         return new Jackson2ObjectMapperBuilder()
-                .createXmlMapper(false)
+//                .createXmlMapper(true)
                 .serializers(new InstantSerializer())
                 .deserializers(new InstantDeserializer())
                 .build();

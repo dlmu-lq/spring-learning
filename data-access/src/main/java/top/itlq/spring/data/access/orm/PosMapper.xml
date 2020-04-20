@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.itlq.spring.data.access.orm.PosMapper">
     <select id="testInterval" resultType="top.itlq.spring.data.access.orm.PosEntity">
+--         可能不走索引
         SET @preTime := DATE_ADD("2020-01-05",INTERVAL -1 DAY);
         select * from a_pos self
         <where>
