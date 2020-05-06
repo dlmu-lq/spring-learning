@@ -2,14 +2,14 @@
 <Configuration>
     <Appenders>
         <console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yy-MM-dd HH:mm:ss,SSS} %-5p [%c{3}] %m%n"/>
+            <PatternLayout pattern="%d{yy-MM-dd HH:mm:ss,SSS} [%t] %-5p [%c{3}] %m%n"/>
         </console>
     </Appenders>
     <Loggers>
-        <logger name="test" level="INFO">
-            <AppenderRef ref="console"/>
-        </logger>
-        <Root level="INFO">
+<!--        <logger name="test" level="DEBUG">-->
+<!--            <AppenderRef ref="console"/>-->
+<!--        </logger>-->
+        <Root level="DEBUG">
             <AppenderRef ref="console"/>
         </Root>
     </Loggers>

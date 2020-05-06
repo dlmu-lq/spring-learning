@@ -26,4 +26,10 @@ public class TestDaoSupport {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-tx.xml");
         context.getBean(TestDaoExceptionService.class).testException();
     }
+
+    @Test
+    public void test13() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TransactionConfiguration.class);
+        System.out.println(context.getBean(TestDaoExceptionService.class).testMybatisException());
+    }
 }

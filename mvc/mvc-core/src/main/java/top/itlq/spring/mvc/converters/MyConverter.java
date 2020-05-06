@@ -1,7 +1,8 @@
 package top.itlq.spring.mvc.converters;
 
 import org.springframework.core.convert.converter.Converter;
-import top.itlq.spring.mvc.learning.beans.TestBean;
+import top.itlq.spring.mvc.model.TestBean;
+
 
 public class MyConverter implements Converter<TestBean,Integer> {
 

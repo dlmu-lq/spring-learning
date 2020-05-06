@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="schemaAspect" class="top.itlq.spring.core.aop.SchemaAspect"/>
+    <bean id="testService" class="top.itlq.spring.core.aop.TestService"/>
+    <bean id="testService2" class="top.itlq.spring.core.aop2.TestService2"/>
+    <!--必须使用aspectj-->
+    <aop:config>
+        <!--这个切点只能匹配aop包下的-->
+        <aop:pointcut id="schemaPointCut" expression="execution(void *..aop..*..test1(..))"/>
+        <aop:aspect id="schemaAspect" ref="schemaAspect">
+            <aop:before pointcut-ref="schemaPointCut" method="testBefore"/>
+            <aop:around pointcut="execution(void test2(..))" method="testAround"/>
+            <!--这个切点能匹配所有test3方法-->
+            <aop:after pointcut="execution(void test3(..))" method="testAfter"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

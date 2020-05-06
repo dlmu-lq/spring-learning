@@ -6,5 +6,5 @@ package top.itlq.spring.data.access.test;
  * 低级别的同步方式，todo 看不懂
  *
  */
-public class TestSyncroizingResources {
+public class TestSyncronizingResources {
 }

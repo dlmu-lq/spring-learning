@@ -12,6 +12,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <spring-version>5.1.4.RELEASE</spring-version>
     </properties>
 
     <dependencies>
@@ -20,13 +21,25 @@
             <artifactId>base</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--test jar-->
+        <!--test jar todo -->
+<!--        <dependency>-->
+<!--            <groupId>top.itlq.spring</groupId>-->
+<!--            <artifactId>testJar</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/src/lib/testJar.jar</systemPath>-->
+<!--        </dependency>-->
+        <!--aspectj 方式aop-->
         <dependency>
-            <groupId>top.itlq.spring</groupId>
-            <artifactId>testJar</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/lib/testJar.jar</systemPath>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.4</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring-version}</version>
         </dependency>
     </dependencies>
 

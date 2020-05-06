@@ -1,4 +1,4 @@
-package top.itlq.spring.mvc.learning.beans;
+package top.itlq.spring.mvc.model;
 
 public class TestBean {
     public TestBean(){
