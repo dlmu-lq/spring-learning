@@ -17,6 +17,8 @@ import java.time.Instant;
 
 /**
  * 结合spring-boot提供的jackson自动配置，添加自定义的jackson自动配置
+ * @see Jackson2ObjectMapperBuilder
+ * @see org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
  */
 @Configuration
 @ConditionalOnClass(ObjectMapper.class)

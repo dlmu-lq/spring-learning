@@ -14,11 +14,14 @@ import javax.sql.DataSource;
  * {@link org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration}
  * {@link SqlSessionFactory}
  * {@link SqlSessionTemplate}
+ * @see org.mybatis.spring.annotation.MapperScan todo 测试
+ * @see org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.AutoConfiguredMapperScannerRegistrar
  */
 @Configuration
 @ConditionalOnClass({DataSource.class, SqlSessionFactory.class, SqlSessionTemplate.class})
 public class MybatisAutoConfiguration {
 
+    // 也可以不自己配置MapperScannerConfigurer，而使用@MapperScan
     @Configuration
     static class MapperScannerConfigurerConfiguration{
         @Bean
