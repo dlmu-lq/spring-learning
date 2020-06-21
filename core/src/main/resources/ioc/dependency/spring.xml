@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+<<<<<<< HEAD
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="top.itlq.spring.core.ioc.beans.dependency.BarService">
+<!--        <property name=""-->
+=======
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean name="barService" class="top.itlq.spring.core.ioc.dependency.BarService">
@@ -8,5 +14,6 @@
 
     <bean name="fooService" class="top.itlq.spring.core.ioc.dependency.FooService">
         <property name="barService" ref="barService"/>
+>>>>>>> 902de24b01cb419996f77c1f29fe303724df88b8
     </bean>
 </beans>
