@@ -13,15 +13,15 @@ public class AopTest {
     @Test
     void test(){
         ApplicationContext context = new ClassPathXmlApplicationContext("aop/aopTestContext.xml");
-        TestService testService = context.getBean(TestService.class);
-        testService.test1();
-        testService.test2();
+        IService testService = context.getBean(IService.class);
+//        testService.test1();
+//        testService.test2();
         testService.test3();
 
-        TestService2 testService2 = context.getBean(TestService2.class);
-        testService2.test1();
-        testService2.test2();
-        testService2.test3();
+//        TestService2 testService2 = context.getBean(TestService2.class);
+//        testService2.test1();
+//        testService2.test2();
+//        testService2.test3();
     }
 
     @Test

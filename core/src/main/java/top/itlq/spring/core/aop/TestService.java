@@ -1,6 +1,6 @@
 package top.itlq.spring.core.aop;
 
-public class TestService {
+public class TestService implements IService{
     public void test1(){
         System.out.println("test1 running...");
     }

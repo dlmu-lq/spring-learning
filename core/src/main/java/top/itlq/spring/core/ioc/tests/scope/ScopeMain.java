@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import top.itlq.spring.core.ioc.beans.scope.UserManager;
 
-@Scope
 public class ScopeMain {
     /**
      * 在xml中是否配置 aop scoped-proxy效果不同；
@@ -20,5 +19,13 @@ public class ScopeMain {
         userManager.printUser();
         userManager.printUser();
         userManager.printUser();
+    }
+    @Test
+    void testScopedProxyLookup(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("ioc/scope/spring-scope.xml");
+        UserManager userManager = context.getBean("userManager", UserManager.class);
+        userManager.printUserM();
+        userManager.printUserM();
+        userManager.printUserM();
     }
 }
