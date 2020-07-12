@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.162.1:8848
+        file-extension: yaml
+        namespace: c0b7b744-b29b-49d2-bd8d-61a40f2b1e2e
+  profiles:
+    active: dev # 也可加启动参数-Dspring.profiles.active=dev
