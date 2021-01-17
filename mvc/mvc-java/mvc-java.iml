@@ -30,6 +30,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="base" />
+    <orderEntry type="module" module-name="base" />
+    <orderEntry type="module" module-name="base" />
     <orderEntry type="module" module-name="mvc-core" />
     <orderEntry type="module" module-name="base" />
     <orderEntry type="library" name="Maven: top.itlq.java:common:1.0-SNAPSHOT" level="project" />
