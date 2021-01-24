@@ -18,7 +18,7 @@ public class ProviderApplication {
     }
 
     @RestController
-    public class EchoController{
+    public class EchoController {
 
         @Value("${server.port}")
         Integer port;
