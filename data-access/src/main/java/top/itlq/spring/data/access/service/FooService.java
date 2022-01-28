@@ -2,6 +2,7 @@ package top.itlq.spring.data.access.service;
 
 import top.itlq.spring.data.access.dao.Foo;
 
+
 public interface FooService {
     void get(String fooName);
     void get(String fooName, String barName);

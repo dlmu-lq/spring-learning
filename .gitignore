@@ -58,3 +58,5 @@ fabric.properties
 
 **/jdbc.properties
 **/application.yml
+*.iml
+**/*.iml

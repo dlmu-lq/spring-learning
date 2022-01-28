@@ -25,6 +25,7 @@ public class NewPosService{
         posMapper.insert(new PosEntity(Instant.now(), 0f, 0f));
         // 此处开启了新事务，不会回滚其内部的
         posService.insertWithNewTransaction();
+        posMapper.insert(new PosEntity(Instant.now(), 0f, 0f));
         System.out.println(1 / 0);
     }
 }
