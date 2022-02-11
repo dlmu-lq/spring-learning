@@ -8,16 +8,16 @@
     <artifactId>base</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <spring-version>5.1.4.RELEASE</spring-version>
+        <spring-version>5.2.1.RELEASE</spring-version>
         <hibernate-validator-version>6.0.17.Final</hibernate-validator-version>
         <javax-validation-version>1.0.0.GA</javax-validation-version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>top.itlq.java</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>top.itlq.java</groupId>-->
+<!--            <artifactId>common</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
         <!--spring start-->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
         <dependency>
@@ -43,12 +43,12 @@
             <artifactId>spring-expression</artifactId>
             <version>${spring-version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-indexer</artifactId>
-            <version>${spring-version}</version>
-            <optional>true</optional>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-context-indexer</artifactId>-->
+<!--            <version>${spring-version}</version>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -90,17 +90,17 @@
                 </includes>
             </resource>
         </resources>
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.1</version>-->
-<!--                <configuration>-->
-<!--                    <source>9</source>-->
-<!--                    <target>9</target>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 

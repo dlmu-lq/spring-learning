@@ -2,7 +2,6 @@ package top.itlq.spring.data.access.service;
 
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
