@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    password: toor
+    password: root
     url: jdbc:mysql://192.168.162.100/java_web
 itlq:
   weixin:
