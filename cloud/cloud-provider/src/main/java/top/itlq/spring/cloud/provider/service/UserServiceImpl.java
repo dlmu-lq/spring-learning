@@ -8,8 +8,8 @@ import top.itlq.spring.cloud.interfaces.service.UserService;
 
 import javax.annotation.PostConstruct;
 
-//@Service
-@Component
+@Service
+//@Component
 public class UserServiceImpl implements UserService {
 
     @PostConstruct
