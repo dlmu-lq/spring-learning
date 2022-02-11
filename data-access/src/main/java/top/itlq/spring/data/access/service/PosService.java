@@ -35,5 +35,6 @@ public class PosService {
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void insertWithNewTransaction(){
         posMapper.insert(new PosEntity(Instant.now(), 1f, 1f));
+        posMapper.insert(new PosEntity(Instant.now(), 1f, 1f));
     }
 }
