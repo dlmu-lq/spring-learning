@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: root
+    password: toor
+    url: jdbc:mysql://192.168.162.100/java_web
+itlq:
+  weixin:
+    subscription:
+      appid: wx98a69034ae3ee363
+      secret: f62c97e7000309734088ce908a62dd37
+server:
+  port: 8081

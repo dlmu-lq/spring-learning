@@ -1,0 +1,25 @@
+server:
+  port: 8083
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.162.1:8848
+  application:
+    name: nacos-provider
+#web端点暴露
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+dubbo:
+  registry:
+    address: nacos://192.168.162.1:8848
+  application:
+    name: dubbo-nacos-consumer
+  protocol:
+    name: dubbo
+    port: 20080
+  scan:
+    base-packages: top.itlq.spring.cloud

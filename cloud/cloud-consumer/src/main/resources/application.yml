@@ -1,0 +1,25 @@
+server:
+  port: 8082
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.162.1:8848
+  application:
+    name: nacos-consumer
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+dubbo:
+  registry:
+    address: nacos://192.168.162.1:8848
+  application:
+    name: dubbo-nacos-consumer
+  protocol:
+    name: dubbo
+    port: 20081
+  scan:
+    base-packages: top.itlq.spring.cloud

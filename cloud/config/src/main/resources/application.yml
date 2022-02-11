@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.162.1:8848
+#web端点暴露
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

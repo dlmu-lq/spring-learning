@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username: root
+    password: toor
+    url: jdbc:mysql://192.168.162.100/java_web

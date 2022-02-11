@@ -56,7 +56,5 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
-**/jdbc.properties
-**/application.yml
 *.iml
 **/*.iml
