@@ -7,6 +7,33 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.Arrays;
 
 public class ClasspathComponentsMain {
+
+    /**
+     * 自动扫描 xml形式
+     * xml component scan
+     */
+    @Test
+    void d(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ioc/classpathComponents/test.xml");
+        System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
+        // 非限定类名首字母变小写作为默认bean name
+        System.out.println(context.getBean("barService"));
+        System.out.println(context.getBean("drinkMapper"));
+    }
+
+    /**
+     * 自动扫描 class形式
+     * @Configuration @ComponentScan
+     */
+    @Test
+    void c(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ComponentScanConfig.class);
+        System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
+        // 非限定类名首字母变小写作为默认bean name
+        System.out.println(context.getBean("barService"));
+        System.out.println(context.getBean("drinkMapper"));
+    }
+
     /**
      * @Import
      */
@@ -27,32 +54,6 @@ public class ClasspathComponentsMain {
         System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
         // 方法签名作为bean name
         System.out.println(context.getBean("anyDrink"));
-    }
-
-    /**
-     * 自动扫描 class形式
-     * @Configuration @ComponentScan
-     */
-    @Test
-    void c(){
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ComponentScanConfig.class);
-        System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
-        // 非限定类名首字母变小写作为默认bean name
-        System.out.println(context.getBean("barService"));
-        System.out.println(context.getBean("drinkMapper"));
-    }
-
-    /**
-     * 自动扫描 xml形式
-     * xml component scan
-     */
-    @Test
-    void d(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ioc/classpathComponents/test.xml");
-        System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
-        // 非限定类名首字母变小写作为默认bean name
-        System.out.println(context.getBean("barService"));
-        System.out.println(context.getBean("drinkMapper"));
     }
 
     /**

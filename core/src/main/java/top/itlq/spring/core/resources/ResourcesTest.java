@@ -78,7 +78,9 @@ class ResourcesTest {
      */
     private static String readResource(Resource resource){
         try(InputStream inputStream = resource.getInputStream()) {
-            return new String(inputStream.readAllBytes());
+            byte[] bytes = new byte[1024];
+            inputStream.read(bytes);
+            return new String(bytes);
         }catch (Exception e){
             e.printStackTrace();
             return null;
