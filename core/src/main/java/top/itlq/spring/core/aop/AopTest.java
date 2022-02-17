@@ -18,19 +18,23 @@ public class AopTest {
 //        testService.test2();
         testService.test3();
 
-//        TestService2 testService2 = context.getBean(TestService2.class);
-//        testService2.test1();
-//        testService2.test2();
-//        testService2.test3();
+        TestService2 testService2 = context.getBean(TestService2.class);
+        testService2.test1();
+        testService2.test2();
+        testService2.test3();
     }
 
     @Test
     void testJavaConfig(){
         ApplicationContext context = new AnnotationConfigApplicationContext(AopConfig.class);
 
-        TestService testService = context.getBean(TestService.class);
+
+        // TestService 代理 实现的是 IService接口，直接获取TestService是获取不到的，类型不正确
+//        TestService testService = context.getBean(TestService.class);
+        IService testService = (IService) context.getBean("testService");
         testService.test1();
-        testService.test2();
+        // jdk代理接口中没有test2方法，就没法使用spring容器管理了
+//        testService.test2();
         testService.test3();
 
         TestService2 testService2 = context.getBean(TestService2.class);
