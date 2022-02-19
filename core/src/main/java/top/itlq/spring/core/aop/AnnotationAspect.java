@@ -7,12 +7,17 @@ import org.aspectj.lang.annotation.*;
 public class AnnotationAspect {
 
     @Pointcut("execution(* *..aop..test1(..))")
-    public void aopBefore(){
+    public void pointcut(){
     }
 
-    @Before("aopBefore()")
+    @Before("pointcut()")
     public void before(){
         System.out.println("before...");
+    }
+
+    @After("pointcut()")
+    public void afterPointcut(){
+        System.out.println("afterPointcut...");
     }
 
     @Around("execution(* test2(..))")
